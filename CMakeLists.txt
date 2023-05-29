@@ -8,6 +8,10 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif ()
 
+if (PLATFORM MATCHES "^OS64$" OR PLATFORM MATCHES "^OS$")
+  add_compile_definitions(IOS)
+endif()
+
 include(GNUInstallDirs)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
